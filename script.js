@@ -9,17 +9,19 @@
 
 
 // Globally declared variables I thought I might need to start
-var timeBlock = $("time-block")
-var taskField = $("task-field")
-var saveButton = $("save-button")
-var taskText = $("task-text")
-var currentDay = $("currentDay")
+var timeBlock = $("#time-block")
+var taskField = $("#task-field")
+var saveButton = $("#save-button")
+var taskText = $("#task-text")
+var currentDay = $("#currentDay")
 var displayMoment = moment()
 var currentTime = moment().hours()//used to change colors on the text fields
 console.log(currentTime)
 // display current date dynamically using moment.js
-var showDate = displayMoment.format('dddd MMMM Do YYYY'); $("#currentDay").text(showDate);
-
+function displayTime() {
+    var showDate = displayMoment.format('dddd MMMM Do YYYY [at] hh:mm:ss a');
+    currentDay.text(showDate);
+}
 //created times as 24hr time to simplify the process of working through the day... I'll figure out later on how to use AM & PM bleh
 var times = [
     "9",
@@ -37,19 +39,19 @@ var times = [
 
 //Template string allow for the ability to not have to spend extra time drolling in each row element
 var row = (id) => `<tr>
-          <th id="time-block" class="bg-secondary" style="width: 8%; color: rgb(255, 255, 255); text-align: center;"
-            scope="row">${id}
-          </th>
-          <td id="task-field-${id}" style="width: 70%">
-            <textarea id="task-text-${id}" placeholder="Type tasks here"></textarea>
-          </td>
-          <td id="save-background" style="background:rgb(68, 108, 194)">
-          <button id="save-button-${id}"
-            style="width: 10%; text-align: center; background-color: rgb(68, 108, 194); border: solid 0px transparent;"><i
-              class="bi bi-save"></i>
-              </button>
-          </td>
-        </tr>`
+<th id="time-block" class="bg-secondary" style="width: 8%; color: rgb(255, 255, 255); text-align: center;"
+scope="row">${id}
+</th>
+<td id="task-field-${id}" style="width: 70%">
+<textarea id="task-text-${id}" placeholder="Type tasks here"></textarea>
+</td>
+<td id="save-background" style="background:rgb(68, 108, 194)">
+<button id="save-button-${id}"
+style="width: 10%; text-align: center; background-color: rgb(68, 108, 194); border: solid 0px transparent;"><i
+class="bi bi-save"></i>
+</button>
+</td>
+</tr>`
 
 // add console.log to save function
 var save = (id, val) => { //this arrow is pretty dope instead of using the ol' function...youTube ftw
@@ -80,4 +82,5 @@ times.forEach((x) => {
     }
 })
 
+setInterval(displayTime, 1000);
 
