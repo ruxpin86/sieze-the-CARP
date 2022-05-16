@@ -8,7 +8,7 @@
 //DONE Make sure that when the page is refreshed that the saved events are persistent
 
 
-// Globally declared variables
+// Globally declared variables I thought I might need to start
 var timeBlock = $("time-block")
 var taskField = $("task-field")
 var saveButton = $("save-button")

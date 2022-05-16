@@ -11,3 +11,5 @@ After discovering and learning about tempalte strings of my own research in the 
 Everything is functional but I used 24hr time to simplify the process of getting my times blocks to be color responsive. Not the most elegant solution, but it works.
 
 Seize the carp
+
+https://ruxpin86.github.io/sieze-the-CARP/
